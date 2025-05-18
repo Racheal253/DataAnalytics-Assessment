@@ -16,9 +16,11 @@ This repository contains solutions to a SQL Proficiency Assessment focused on so
   - Savings plans where `is_regular_savings = 1`
   - Investment plans where `is_a_fund = 1`
   - Only include funded plans using `status_id = 1`
+  - Aggregated:
+    - `savings_count`, `investment_count`
+    - `total_deposits` using `confirmed_amount`(convert from kobo to naira).  
 - Grouped by customer ID and name.
-- Aggregated to count savings/investments and sum deposits (`confirmed_amount`).
-- Ordered by total deposits (converted from kobo to naira).
+- Ordered by `total_deposits` in descending order
 
 ---
 
