@@ -9,11 +9,11 @@ SELECT
     ROUND(
         (COUNT(s.id) / NULLIF(TIMESTAMPDIFF(MONTH, u.date_joined, CURDATE()), 0)) * 12 * 0.001 * AVG(s.confirmed_amount),
         2
-    ) AS estimated_clv
+    ) AS calculated_clv
 FROM users_customuser u
 JOIN savings_savingsaccount s 
     ON s.owner_id = u.id
     AND s.transaction_type_id = 1
     AND s.transaction_status = 'Success'
 GROUP BY u.id, u.name
-ORDER BY estimated_clv DESC;
+ORDER BY calculated_clv DESC;
